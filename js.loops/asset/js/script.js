@@ -62,6 +62,7 @@ for (let i = 0; i < eded.length; i++) {
 }
 
 if (found) {
+    
     console.log(input + " array daxilində mövcuddur");
 } else {
     console.log(input + " array daxilində yoxdur");
@@ -77,7 +78,8 @@ for (let i = 1; i < reqemler.length; i++) {
     if (reqemler[i] < min) {
         min = reqemler[i];
     }
-    if (reqemler[i] > max) {
+    if (reqemler
+        [i] > max) {
         max = reqemler[i];
     }
 }
