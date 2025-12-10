@@ -121,8 +121,164 @@ console.log(result);
 // bir string olaraq return etmelidir. Meselen -> [1,2] [3,4] '*'
 //  gonderilerse output -> 1*2*3*4 string-i olmalidir.
 function mergeArrays(arr1, arr2, char) {
-    let merged = [...arr1, ...arr2]; 
-    return merged.join(char);        
+    let merged = [...arr1, ...arr2];
+    return merged.join(char);
 }
 
-console.log(mergeArrays([1, 2], [3, 4], '*'));  
+console.log(mergeArrays([1, 2], [3, 4], '*'));
+
+
+
+console.log("--------------");
+
+let arr = [
+    {
+        name: 'test',
+        key: 1
+    },
+    {
+        name: 'task',
+        key: 2
+    },
+    {
+        name: 'tanqo',
+        key: 3
+    },
+    {
+        name: 'like',
+        key: 4
+    },
+    {
+        name: 'task',
+        key: 5
+    },
+    {
+        name: 'trust',
+        key: 6
+    },
+    {
+        name: 'test',
+        key: 7
+    },
+    {
+        name: 'last',
+        key: 8
+    },
+    {
+        name: 'tanqo',
+        key: 9
+    },
+    {
+        name: 'elephant',
+        key: 10
+    },
+    {
+        name: 'love',
+        key: 11
+    },
+    {
+        name: 'small',
+        key: 12
+    },
+    {
+        name: 'little',
+        key: 13
+    },
+]
+
+
+// 1) "name"-i "t" herfi ile bashlayan obyektleri yeni arraya yigin (filter)
+const newFiltArray = arr.filter(obj => obj.name[0] === "t")
+console.log(newFiltArray);
+
+// 2) "name"-i "t" herfi ile bashlayib "t" herfi ile biten obyektlerin sayini tapin (forEach)
+const tstartend = arr.filter(obj => obj.name[0] === "t" && obj.name[obj.name.length - 1] === "t")
+console.log(tstartend);
+// 3) "name"-i "t" herfi ile bashlayib "t" herfi ile biten obyektlerin "key"- lerinin cemini tapin
+let sum = 0;
+arr.forEach(obj => {
+    if (obj.name[0] === "t" && obj.name[obj.name.length - 1] === "t") {
+        sum += obj.key
+    }
+}
+
+)
+console.log(sum);
+// 4) "name"-i "e" herfi ile biten obyeklerdeki name-in deyerini "SuperDev" sozu ile evezleyin.
+let endWhithe = arr.filter(obj => {
+    if (
+        obj.name[obj.name.length - 1] === "e") { obj.name = "SuperDev" }
+})
+console.log(arr);
+// 5) "name"-i en uzun olan obyekti tapin
+let lengtobyekt = arr[0]
+for (let i = 1; i < arr.length; i++) {
+    if (arr[i].name.length > lengtobyekt.name.length) {
+        lengtobyekt = arr[i]
+    }
+}
+console.log(lengtobyekt);
+
+
+// 6) "name"-i en uzun olan obyektin key'ni tapin
+console.log(lengtobyekt.key);
+
+
+// 7)  "name"-i en uzun olan obyektin indexin kvadratini hesablayin
+
+let index = arr.indexOf(lengtobyekt)
+console.log(index ** 2);
+
+// 8) "name"-inin uzunlugu 4 olan obyektlerden ibaret yeni array yaradin. (filter)
+let name4 = arr.filter(obj => obj.name.length === 4);
+console.log(name4);
+
+
+// 9)  en boyuk "key" - i olan obyektin "name"-i ni tapin
+
+let bigKey = arr[0];
+
+for (let i = 1; i < arr.length; i++) {
+    if (arr[i].key > bigKey) {
+        bigKey = arr[i];
+    }
+}
+
+console.log(bigKey.name);
+
+// 10) terkibinde 2 'l' (el) herfi olan obyekt(ler)in index(ler)ini tapin.
+
+
+let twoLIndexes = [];
+
+arr.forEach((obj, i) => {
+    let count = 0;
+
+    for (let char of obj.name) {
+        if (char === 'l') count++;
+    }
+
+    if (count >= 2) twoLIndexes.push(i);
+});
+
+console.log(twoLIndexes);
+
+// 11) terkibinde ən az 2 't' herfi olan obyekt(ler)i tapın.
+let twoT = arr.filter(obj => {
+    let count = 0;
+
+    for (let ch of obj.name) {
+        if (ch === 't') count++;
+    }
+
+    return count >= 2;
+});
+
+console.log(twoT);
+// 12) key'leri 10'dan boyuk ve "name"-i 'l' herfi ile bashlayan obyektleri tapaq
+let netice = arr.filter(obj =>
+    obj.key > 10 && obj.name[0] === "l"
+);
+
+console.log(netice);
+
